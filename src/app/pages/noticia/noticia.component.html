@@ -1,0 +1,39 @@
+<h2>
+    Noticia
+</h2>
+<hr>
+<div class="row">
+    <div class="col text-right">
+        <button class="btn btn-danger" [routerLink]="['/noticias']">
+            <i class="fa fa-arrow-left"></i>
+            Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn slow">
+    <div class="col">
+        <form (ngSubmit)="guardar(forma)" #forma="ngForm">
+            <!-- Titulo-->
+            <div class="form-group">
+                <label>Titulo de la noticia</label>
+                <input type="text" class="form-control" [(ngModel)]="noticia.titulo" name="titulo" id="exampleFormControlInput1" placeholder="Titulo" required>
+            </div>
+
+            <!-- Descripcion -->
+            <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" class="form-control" [(ngModel)]="noticia.descripcion" name="descripcion" id="exampleFormControlInput1" placeholder="Descripcion" required>
+            </div>
+            <hr>
+
+            <!-- Boton submit -->
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
