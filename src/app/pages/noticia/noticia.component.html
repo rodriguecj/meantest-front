@@ -12,7 +12,7 @@
 </div>
 
 <div class="row animated fadeIn slow">
-    <div class="col">
+    <div class="col-sm-12 col-md-6">
         <form (ngSubmit)="guardar(forma)" #forma="ngForm">
             <!-- Titulo-->
             <div class="form-group">
@@ -23,7 +23,8 @@
             <!-- Descripcion -->
             <div class="form-group">
                 <label>Descripción</label>
-                <input type="text" class="form-control" [(ngModel)]="noticia.descripcion" name="descripcion" id="exampleFormControlInput1" placeholder="Descripcion" required>
+                <!--                 <input type="text" class="form-control" [(ngModel)]="noticia.descripcion" name="descripcion" placeholder="Descripcion" required>-->
+                <textarea class="form-control" rows="5" [(ngModel)]="noticia.descripcion" name="descripcion" placeholder="Descripcion" required></textarea>
             </div>
             <hr>
 

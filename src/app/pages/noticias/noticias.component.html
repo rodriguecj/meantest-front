@@ -1,4 +1,4 @@
-<h1>Listado de noticias</h1>
+<h2>Listado de noticias</h2>
 <hr>
 <div class="row">
     <div class="col text-right">
@@ -10,33 +10,47 @@
 </div>
 
 <!-- Table -->
-<table class="table mt-3 animated fadeIn slow">
+<table *ngIf="!cargando && noticias.length > 0" class="table mt-3 animated fadeIn fast">
     <thead class="thead-dark">
         <tr>
             <th scope="col">#</th>
             <th scope="col">Titulo</th>
             <!-- <th scope="col">Last</th> -->
-            <th scope="col">Herramientas</th>
+            <th class="text-center" scope="col">Herramientas</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Titulo prueba</td>
+        <tr *ngFor="let noticia of noticias; let i = index">
+            <th scope="row">{{ i + 1 }}</th>
+            <td>
+                <a class="titulo_noticia" [routerLink]="['/noticia/detalle', noticia._id]">
+                    {{ noticia.titulo }}
+                </a>
+            </td>
             <!-- <td>Otto</td> -->
-            <td>Borrar y editar</td>
+            <td class="text-center">
+                <button title="ver" class="btn btn-success mr-1" [routerLink]="['/noticia/detalle', noticia._id]">
+                    <i class="fa fa-eye"></i>
+                </button>
+                <button class="btn btn-info mr-1" [routerLink]="['/noticia', noticia._id]">
+                    <i class="fa fa-pencil"></i>
+                </button>
+                <button class="btn btn-danger" (click)="borrarNoticia( noticia._id, i )">
+                    <i class="fa fa-trash"></i>
+                </button>
+            </td>
         </tr>
     </tbody>
 </table>
 
-<div class="alert alert-warning text-center mt-3">
+<div *ngIf="!cargando && noticias.length == 0" class="alert alert-warning text-center mt-3 animated fadeIn fast">
     <h4 class="alert-heading">No hay Noticias</h4>
     <p>
         <i class="fa fa-exclamation fa-5x"></i>
     </p>
 </div>
 
-<div class="alert alert-info text-center mt-3">
+<div *ngIf="cargando" class="alert alert-info text-center mt-3">
     <h4 class="alert-heading">Cargando...</h4>
     <p>
         <i class="fa fa-spinner fa-spin fa-5x"></i>

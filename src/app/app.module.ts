@@ -10,12 +10,14 @@ import { AppComponent } from './app.component';
 /* Componentes */
 import { NoticiasComponent } from './pages/noticias/noticias.component';
 import { NoticiaComponent } from './pages/noticia/noticia.component';
+import { DetalleComponent } from './pages/detalle/detalle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoticiasComponent,
-    NoticiaComponent
+    NoticiaComponent,
+    DetalleComponent
   ],
   imports: [
     BrowserModule,

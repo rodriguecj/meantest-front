@@ -1,11 +1,7 @@
 
 export class NoticiaModel {
-    id:string;
+    _id:string;
     titulo: string
     descripcion: string
-    constructor(
-        
-    ){
-
-    }
+    constructor(){}
 }
